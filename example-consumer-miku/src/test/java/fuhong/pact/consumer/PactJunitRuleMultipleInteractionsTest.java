@@ -1,4 +1,4 @@
-package ariman.pact.consumer;
+package fuhong.pact.consumer;
 
 import au.com.dius.pact.consumer.dsl.PactDslWithProvider;
 import au.com.dius.pact.consumer.junit.PactProviderRule;
@@ -46,7 +46,7 @@ public class PactJunitRuleMultipleInteractionsTest {
                         "    \"name\": \"Hatsune Miku\",\n" +
                         "    \"nationality\": \"Japan\",\n" +
                         "    \"contact\": {\n" +
-                        "        \"Email\": \"hatsune.miku@ariman.com\",\n" +
+                        "        \"Email\": \"hatsune.miku@amy-fuhong.com\",\n" +
                         "        \"Phone Number\": \"9090950\"\n" +
                         "    }\n" +
                         "}")
@@ -63,7 +63,7 @@ public class PactJunitRuleMultipleInteractionsTest {
                         "    \"name\": \"Takamachi Nanoha\",\n" +
                         "    \"nationality\": \"Japan\",\n" +
                         "    \"contact\": {\n" +
-                        "        \"Email\": \"takamachi.nanoha@ariman.com\",\n" +
+                        "        \"Email\": \"takamachi.nanoha@amy-fuhong.com\",\n" +
                         "        \"Phone Number\": \"9090940\"\n" +
                         "    }\n" +
                         "}")

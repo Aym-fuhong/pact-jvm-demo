@@ -1,12 +1,11 @@
-package ariman.pact.consumer;
+package fuhong.pact.consumer;
 
+import au.com.dius.pact.consumer.MockServer;
+import au.com.dius.pact.consumer.PactTestExecutionContext;
 import au.com.dius.pact.consumer.dsl.PactDslWithProvider;
-import au.com.dius.pact.consumer.junit.PactProviderRule;
-import au.com.dius.pact.consumer.junit.PactVerification;
+import au.com.dius.pact.consumer.junit.ConsumerPactTest;
 import au.com.dius.pact.core.model.RequestResponsePact;
 import au.com.dius.pact.core.model.annotations.Pact;
-import org.junit.Rule;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,15 +18,13 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class PactJunitRuleTest {
+public class PactBaseConsumerTest extends ConsumerPactTest {
 
     @Autowired
     ProviderService providerService;
 
-    @Rule
-    public PactProviderRule mockProvider = new PactProviderRule("ExampleProvider", this);
-
-    @Pact(consumer = "JunitRuleConsumer")
+    @Override
+    @Pact(provider="ExampleProvider", consumer="BaseConsumer")
     public RequestResponsePact createPact(PactDslWithProvider builder) {
         Map<String, String> headers = new HashMap<String, String>();
         headers.put("Content-Type", "application/json;charset=UTF-8");
@@ -46,17 +43,27 @@ public class PactJunitRuleTest {
                         "    \"name\": \"Hatsune Miku\",\n" +
                         "    \"nationality\": \"Japan\",\n" +
                         "    \"contact\": {\n" +
-                        "        \"Email\": \"hatsune.miku@ariman.com\",\n" +
+                        "        \"Email\": \"hatsune.miku@amy-fuhong.com\",\n" +
                         "        \"Phone Number\": \"9090950\"\n" +
                         "    }\n" +
                         "}")
+
                 .toPact();
     }
 
-    @Test
-    @PactVerification
-    public void runTest() {
-        providerService.setBackendURL(mockProvider.getUrl());
+    @Override
+    protected String providerName() {
+        return "ExampleProvider";
+    }
+
+    @Override
+    protected String consumerName() {
+        return "BaseConsumer";
+    }
+
+    @Override
+    protected void runTest(MockServer mockServer, PactTestExecutionContext context) {
+        providerService.setBackendURL(mockServer.getUrl());
         Information information = providerService.getInformation();
         assertEquals(information.getName(), "Hatsune Miku");
     }

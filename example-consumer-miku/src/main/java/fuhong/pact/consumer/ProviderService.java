@@ -1,4 +1,4 @@
-package ariman.pact.consumer;
+package fuhong.pact.consumer;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;

@@ -1,4 +1,4 @@
-package ariman.pact.consumer;
+package fuhong.pact.consumer;
 
 import java.util.HashMap;
 import java.util.Map;

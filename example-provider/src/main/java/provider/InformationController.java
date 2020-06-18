@@ -16,7 +16,7 @@ public class InformationController {
     public Information information(@RequestParam(value="name", defaultValue="Miku") String name) {
         if (name.equals("Miku")) {
             HashMap contact = new HashMap<String, String>();
-            contact.put("Email", "hatsune.miku@ariman.com");
+            contact.put("Email", "hatsune.miku@amy-fuhong.com");
             contact.put("Phone Number", "9090950");
             information.setNationality(Nationality.getNationality());
             information.setContact(contact);
@@ -25,7 +25,7 @@ public class InformationController {
 
         } else if (name.equals("Nanoha")) {
             HashMap contact = new HashMap<String, String>();
-            contact.put("Email", "takamachi.nanoha@ariman.com");
+            contact.put("Email", "takamachi.nanoha@amy-fuhong.com");
             contact.put("Phone Number", "9090940");
             information.setNationality(Nationality.getNationality());
             information.setContact(contact);

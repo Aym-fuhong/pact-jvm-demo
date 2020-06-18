@@ -25,7 +25,7 @@
         "body": {
           "nationality": null,
           "contact": {
-            "Email": "takamachi.nanoha@ariman.com",
+            "Email": "takamachi.nanoha@amy-fuhong.com",
             "Phone Number": "9090940"
           },
           "name": "Takamachi Nanoha",
@@ -45,7 +45,7 @@
               "matchers": [
                 {
                   "match": "regex",
-                  "regex": ".*@ariman.com"
+                  "regex": ".*@amy-fuhong.com"
                 }
               ],
               "combine": "AND"
